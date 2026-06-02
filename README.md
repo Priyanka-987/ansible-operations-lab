@@ -71,4 +71,3 @@ ansible-playbook -i inventory/hosts.ini reboot-check/reboot-and-check.yml
 ## Disclaimer
 
 All examples are based on lab environments and do not contain any customer, production, or proprietary information.
-```
