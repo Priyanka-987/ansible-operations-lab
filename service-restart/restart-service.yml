@@ -1,1 +1,20 @@
+---
+- name: Restart a service on multiple Linux servers
+  hosts: linux_servers
+  gather_facts: no
+  become: yes
+  serial: 5
 
+  vars:
+    service_name: nginx
+
+  tasks:
+    - name: Restart target service
+      ansible.builtin.service:
+        name: "{{ service_name }}"
+        state: restarted
+      register: result_restart
+
+    - name: Display restart result
+      ansible.builtin.debug:
+        msg: "Service {{ service_name }} restarted successfully on {{ inventory_hostname }}"
