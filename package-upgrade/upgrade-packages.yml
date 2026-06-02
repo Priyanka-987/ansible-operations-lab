@@ -1,1 +1,13 @@
+---
+- name: Upgrade packages
+  hosts: all
+  become: yes
 
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade installed packages
+      apt:
+        upgrade: dist
