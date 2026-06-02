@@ -1,1 +1,12 @@
+---
+- name: Reboot servers and verify connectivity
+  hosts: all
+  become: yes
 
+  tasks:
+    - name: Reboot server
+      reboot:
+
+    - name: Wait for connection
+      wait_for_connection:
+        timeout: 300
